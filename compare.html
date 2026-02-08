@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compare Drivers | F1 Analytics</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">F1 Analytics</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="drivers.html">Drivers</a></li>
+    <li><a href="#" class="active">Compare</a></li>
+  </ul>
+</nav>
+
+<section class="page-header">
+  <h1>Compare Drivers</h1>
+  <p>Head-to-head Formula 1 performance analysis</p>
+</section>
+
+<section class="compare-controls">
+  <select id="driverA">
+    <option value="alonso">Fernando Alonso</option>
+    <option value="verstappen">Max Verstappen</option>
+  </select>
+
+  <select id="driverB">
+    <option value="verstappen">Max Verstappen</option>
+    <option value="alonso">Fernando Alonso</option>
+  </select>
+
+  <button onclick="compareDrivers()">Compare</button>
+</section>
+
+<section class="compare-chart">
+  <canvas id="compareChart"></canvas>
+</section>
+
+<script src="js/compare.js"></script>
+</body>
+</html>

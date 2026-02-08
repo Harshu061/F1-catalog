@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Driver Profile | F1 Analytics</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">F1 Analytics</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="drivers.html">Drivers</a></li>
+      <li><a href="#">Teams</a></li>
+      <li><a href="#">Compare</a></li>
+    </ul>
+  </nav>
+
+  <!-- DRIVER HEADER -->
+  <section class="driver-header">
+    <h1 id="name">Loading...</h1>
+    <p id="team">Current Team</p>
+  </section>
+
+  <!-- METRICS -->
+  <section class="metrics-grid">
+    <div class="metric-card">
+      <h4>Points</h4>
+      <span id="points">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>Wins</h4>
+      <span id="wins">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>Consistency</h4>
+      <span id="consistency">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>Reliability</h4>
+      <span id="reliability">—</span>
+    </div>
+  </section>
+
+  <!-- ANALYTICS -->
+  <section class="analytics">
+    <h2>Performance Analytics</h2>
+    <canvas id="performanceChart"></canvas>
+  </section>
+
+  <!-- SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/driverProfile.js"></script>
+
+
+</body>
+</html>
