@@ -1,77 +1,88 @@
+// ----------------------------------
+// GET DRIVER REF FROM URL
+// ----------------------------------
 const params = new URLSearchParams(window.location.search);
-const driverRef = params.get("ref");
+const ref = params.get("ref");
 
-let chart;
-
-function formatName(ref) {
-  return ref
-    .split("_")
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+if (!ref) {
+  document.getElementById("name").innerText = "Driver not found";
+  throw new Error("No driver ref provided");
 }
 
-async function loadDriverStats(ref) {
-  const res = await fetch(`http://localhost:3000/api/driver/${ref}/stats`);
-  const data = await res.json();
+// ----------------------------------
+// DOM ELEMENTS
+// ----------------------------------
+const nameEl = document.getElementById("name");
+const pointsEl = document.getElementById("points");
+const winsEl = document.getElementById("wins");
+const consistencyEl = document.getElementById("consistency");
+const reliabilityEl = document.getElementById("reliability");
 
-  document.getElementById("points").innerText = data.points;
-  document.getElementById("wins").innerText = data.wins;
-  document.getElementById("consistency").innerText = data.consistency;
-  document.getElementById("reliability").innerText = data.reliability;
+// ----------------------------------
+// LOAD DRIVER STATS
+// ----------------------------------
+async function loadStats() {
+  try {
+    const res = await fetch(
+      `http://localhost:3000/api/driver/${ref}/stats`
+    );
+
+    if (!res.ok) throw new Error("Stats not found");
+
+    const data = await res.json();
+
+    nameEl.innerText = ref.replace("_", " ").toUpperCase();
+    pointsEl.innerText = data.points ?? "—";
+    winsEl.innerText = data.wins ?? "—";
+    consistencyEl.innerText = data.consistency ?? "—";
+    reliabilityEl.innerText = data.reliability ?? "—";
+  } catch (err) {
+    console.error("STATS ERROR:", err);
+  }
 }
 
-async function renderChartFromBackend(ref) {
-  const res = await fetch(
-    `http://localhost:3000/api/driver/${ref}/performance`
-  );
-  const data = await res.json();
+// ----------------------------------
+// LOAD PERFORMANCE CHART
+// ----------------------------------
+async function loadChart() {
+  try {
+    const res = await fetch(
+      `http://localhost:3000/api/driver/${ref}/performance`
+    );
+    const data = await res.json();
 
-  const ctx = document.getElementById("performanceChart");
+    const ctx = document
+      .getElementById("performanceChart")
+      .getContext("2d");
 
-  if (chart) chart.destroy();
-
-  chart = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: data.races,
-      datasets: [{
-        label: "Performance Score",
-        data: data.scores,
-        borderColor: "#ff0000",
-        backgroundColor: "rgba(255,0,0,0.2)",
-        tension: 0.4,
-        pointRadius: 5
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          labels: { color: "#fff" }
-        }
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: data.races,
+        datasets: [
+          {
+            label: "Performance Score",
+            data: data.scores,
+            borderWidth: 2
+          }
+        ]
       },
-      scales: {
-        x: {
-          ticks: { color: "#aaa" },
-          grid: { color: "#222" }
-        },
-        y: {
-          ticks: { color: "#aaa" },
-          grid: { color: "#222" }
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
       }
-    }
-  });
+    });
+  } catch (err) {
+    console.error("CHART ERROR:", err);
+  }
 }
 
-function loadDriver() {
-  if (!driverRef) return;
-
-  document.getElementById("name").innerText = formatName(driverRef);
-  document.getElementById("team").innerText = "Current Team";
-
-  loadDriverStats(driverRef);       // ✅ IMPORTANT
-  renderChartFromBackend(driverRef); // ✅ IMPORTANT
-}
-
-loadDriver();
+// ----------------------------------
+// INIT
+// ----------------------------------
+loadStats();
+loadChart();

@@ -5,6 +5,7 @@
   <title>F1 Analytics</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -16,54 +17,102 @@
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
+    <div class="hero-overlay"></div>
 
-  <!-- REQUIRED OVERLAY -->
-  <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>
+        FORMULA 1<br />
+        PERFORMANCE<br />
+        ANALYTICS
+      </h1>
 
-  <div class="hero-content">
-    <h1>
-      FORMULA 1<br />
-      PERFORMANCE<br />
-      ANALYTICS
-    </h1>
+      <p class="tagline">
+        <span>Beyond lap times.</span> Performance, analyzed.
+      </p>
 
-    <p class="tagline">
-      <span>Beyond lap times.</span> Performance, analyzed.
-    </p>
+      <p class="description">
+        A data-driven platform that analyzes Formula 1 drivers
+        using backend-computed performance metrics.
+      </p>
 
-    <p class="description">
-      A data-driven platform that analyzes and compares Formula 1 drivers
-      using backend-computed performance metrics.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="drivers.html" class="btn primary">Explore Drivers</a>
-      <a href="compare.html" class="btn secondary">Compare Drivers</a>
+      <div class="hero-buttons">
+        <a href="drivers.html" class="btn primary">Explore Drivers</a>
+        <a href="compare.html" class="btn secondary">Compare Drivers</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-</section>
-
-
-  <!-- TEAMS SECTION -->
+  <!-- TEAMS -->
   <section class="teams-section">
     <h2>Formula 1 Teams</h2>
 
     <div class="teams-grid">
-      <div class="team-card">Red Bull Racing</div>
-      <div class="team-card">Ferrari</div>
-      <div class="team-card">Mercedes</div>
-      <div class="team-card">McLaren</div>
-      <div class="team-card">Aston Martin</div>
-      <div class="team-card">Alpine</div>
-      <div class="team-card">Williams</div>
-      <div class="team-card">RB</div>
-      <div class="team-card">Kick Sauber</div>
-      <div class="team-card">Haas</div>
+
+      <div class="team-card">
+        <img src="assets/teams/redbull.png" alt="Red Bull Racing">
+        <h3>Red Bull Racing</h3>
+        <p>Championship benchmark in aero efficiency.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/ferrari.png" alt="Ferrari">
+        <h3>Ferrari</h3>
+        <p>Historic constructor with aggressive race pace.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/mercedes.png" alt="Mercedes">
+        <h3>Mercedes</h3>
+        <p>Engineering-driven consistency and strategy.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/mclaren.png" alt="McLaren">
+        <h3>McLaren</h3>
+        <p>Rapid development and strong midfield pressure.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/astonmartin.png" alt="Aston Martin">
+        <h3>Aston Martin</h3>
+        <p>Aerodynamic innovation with podium potential.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/alpine.png" alt="Alpine">
+        <h3>Alpine</h3>
+        <p>Balanced chassis with inconsistent execution.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/williams.png" alt="Williams">
+        <h3>Williams</h3>
+        <p>Straight-line performance focused philosophy.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/rb.png" alt="RB">
+        <h3>RB</h3>
+        <p>Experimental data-driven race setups.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/sauber.png" alt="Kick Sauber">
+        <h3>Kick Sauber</h3>
+        <p>Rebuilding era ahead of Audi integration.</p>
+      </div>
+
+      <div class="team-card">
+        <img src="assets/teams/haas.png" alt="Haas">
+        <h3>Haas</h3>
+        <p>Lean operations with targeted upgrades.</p>
+      </div>
+
     </div>
   </section>
 
+  <script src="js/main.js"></script>
 </body>
 </html>

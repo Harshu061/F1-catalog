@@ -1,32 +1,47 @@
 const driversContainer = document.getElementById("drivers");
 
+function getDriverName(driver) {
+  return (
+    driver.fullName ||
+    `${driver.givenName || ""} ${driver.familyName || ""}`.trim() ||
+    driver.driverId ||
+    driver.ref ||
+    "Unknown Driver"
+  );
+}
+
 async function loadDrivers() {
   try {
     const res = await fetch("http://localhost:3000/api/drivers");
-    const data = await res.json();
+    const drivers = await res.json();
 
     driversContainer.innerHTML = "";
 
-    data.forEach(driver => {
-      const fullName = `${driver.givenName} ${driver.familyName}`;
+    drivers.forEach(driver => {
+      const name = getDriverName(driver);
+      const nationality = driver.nationality || "—";
+      const points = driver.points ?? "—";
+      const wins = driver.wins ?? "—";
+      const ref = driver.ref || driver.driverId;
 
       const card = document.createElement("div");
       card.className = "driver-card";
 
       card.innerHTML = `
-        <h3>${fullName}</h3>
-        <p>${driver.nationality}</p>
-        <p><strong>Current Team</strong></p>
-        <p>Points: — | Wins: —</p>
-        <a class="btn small" href="driver.html?ref=${driver.driverId}">
+        <h3>${name}</h3>
+        <p>${nationality}</p>
+        <p><strong>${driver.team || "Current Team"}</strong></p>
+        <p>Points: ${points} | Wins: ${wins}</p>
+        <button onclick="window.location.href='driver.html?ref=${ref}'">
           View Profile
-        </a>
+        </button>
       `;
 
       driversContainer.appendChild(card);
     });
   } catch (err) {
     console.error("Error loading drivers:", err);
+    driversContainer.innerHTML = "<p>Failed to load drivers</p>";
   }
 }
 
