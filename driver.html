@@ -8,20 +8,27 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
+    <nav class="navbar">
     <div class="logo">F1 Analytics</div>
-    <ul>
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="drivers.html">Drivers</a></li>
-      <li><a href="#">Teams</a></li>
-      <li><a href="#">Compare</a></li>
+      <li><a href="drivers.html" class="active">Drivers</a></li>
+      <li><a href="compare.html">Compare</a></li>
     </ul>
   </nav>
 
   <!-- DRIVER HEADER -->
   <section class="driver-header">
-    <h1 id="name">Loading...</h1>
-    <p id="team">Current Team</p>
+    <div class="driver-header-inner">
+      <div class="driver-photo-wrap">
+        <img id="driverPhoto" src="assets/drivers/placeholder.png" alt="Driver photo" />
+      </div>
+
+      <div class="driver-meta">
+        <h1 id="name">Loading...</h1>
+        <p id="team">Current Team</p>
+      </div>
+    </div>
   </section>
 
   <!-- METRICS -->
@@ -45,12 +52,60 @@
       <h4>Reliability</h4>
       <span id="reliability">—</span>
     </div>
+
+    <div class="metric-card">
+      <h4>Qualifying</h4>
+      <span id="qualifying">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>Podiums</h4>
+      <span id="podiums">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>DNF</h4>
+      <span id="dnf">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>Avg Pace</h4>
+      <span id="avgPace">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>Risk Taking</h4>
+      <span id="riskTaking">—</span>
+    </div>
+
+    <div class="metric-card">
+      <h4>Teamwork</h4>
+      <span id="teamwork">—</span>
+    </div>
   </section>
 
   <!-- ANALYTICS -->
   <section class="analytics">
     <h2>Performance Analytics</h2>
     <canvas id="performanceChart"></canvas>
+  </section>
+
+  <!-- SKILLS BREAKDOWN -->
+  <section class="analytics">
+    <h2>Skills Breakdown</h2>
+    <canvas id="skillsChart"></canvas>
+  </section>
+
+  <!-- PACE DISTRIBUTION -->
+  <section class="analytics">
+    <h2>Pace Distribution</h2>
+    <canvas id="paceChart"></canvas>
+  </section>
+
+  <!-- CONSISTENCY TREND -->
+  <section class="analytics">
+    <h2>Wins & Podiums Trend</h2>
+    <canvas id="trendChart"></canvas>
   </section>
 
   <!-- SCRIPTS -->

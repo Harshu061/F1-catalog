@@ -10,10 +10,10 @@
 
 <nav class="navbar">
   <div class="logo">F1 Analytics</div>
-  <ul>
+  <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="drivers.html">Drivers</a></li>
-    <li><a href="#" class="active">Compare</a></li>
+    <li><a href="compare.html" class="active">Compare</a></li>
   </ul>
 </nav>
 
@@ -24,16 +24,107 @@
 
 <section class="compare-controls">
   <select id="driverA">
-    <option value="alonso">Fernando Alonso</option>
-    <option value="verstappen">Max Verstappen</option>
+    <option value="">Loading drivers...</option>
   </select>
 
   <select id="driverB">
-    <option value="verstappen">Max Verstappen</option>
-    <option value="alonso">Fernando Alonso</option>
+    <option value="">Loading drivers...</option>
   </select>
 
   <button onclick="compareDrivers()">Compare</button>
+</section>
+
+<section class="compare-results">
+  <div class="drivers-side-by-side" id="driversSideBySide" style="display: none;">
+    <div class="driver-comparison-card">
+      <h3 id="driverAName">Driver A</h3>
+      <p id="driverATeam">Team</p>
+      <div class="metric-row">
+        <span>Points:</span>
+        <span id="driverAPoints" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Wins:</span>
+        <span id="driverAWins" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Podiums:</span>
+        <span id="driverAPodiums" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>DNF:</span>
+        <span id="driverADNF" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Consistency:</span>
+        <span id="driverAConsistency" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Reliability:</span>
+        <span id="driverAReliability" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Qualifying:</span>
+        <span id="driverAQualifying" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Avg Pace:</span>
+        <span id="driverAAvgPace" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Risk Taking:</span>
+        <span id="driverARiskTaking" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Teamwork:</span>
+        <span id="driverATeamwork" class="metric-value">—</span>
+      </div>
+    </div>
+    <div class="driver-comparison-card">
+      <h3 id="driverBName">Driver B</h3>
+      <p id="driverBTeam">Team</p>
+      <div class="metric-row">
+        <span>Points:</span>
+        <span id="driverBPoints" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Wins:</span>
+        <span id="driverBWins" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Podiums:</span>
+        <span id="driverBPodiums" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>DNF:</span>
+        <span id="driverBDNF" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Consistency:</span>
+        <span id="driverBConsistency" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Reliability:</span>
+        <span id="driverBReliability" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Qualifying:</span>
+        <span id="driverBQualifying" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Avg Pace:</span>
+        <span id="driverBAvgPace" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Risk Taking:</span>
+        <span id="driverBRiskTaking" class="metric-value">—</span>
+      </div>
+      <div class="metric-row">
+        <span>Teamwork:</span>
+        <span id="driverBTeamwork" class="metric-value">—</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="compare-chart">
